@@ -1,7 +1,15 @@
 <?php
 
 include "infra/conexao.php";
-$livros = mysqli_query($conexao, "SELECT * FROM livros");
+
+$stmt = mysqli_prepare($conexao, "SELECT * FROM livros");
+mysqli_stmt_execute($stmt);
+
+$livros = mysqli_stmt_get_result($stmt);
+
+//Essa parte so fizemos a logica basica de preparar, executar e pegar o resultado, 
+//por que não tinha necessidade por que não era algo ocmplexo de editar por exemplo,
+// mas por organização e segurança fizemos assim.
 
 ?>
 
