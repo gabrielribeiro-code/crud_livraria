@@ -3,10 +3,24 @@
 include "../infra/conexao.php";
 
 $id = $_GET["id"];
-$sql = "SELECT * FROM livros WHERE id = $id";
-$resultado = mysqli_query($conexao, $sql );
+
+$stmt = mysqli_prepare(
+    $conexao,
+
+"SELECT * FROM livros WHERE id = "?" ";
+);
+
+mysqli_stmt_bind_param($stmt, "i", $id);
+
+mysqli_stmt_execute($stmt);
+
+$resultado = mysqli_stmt_get_result($stmt);
 
 $livro =mysqli_fetch_assoc($resultado);
+
+//Aqui então nos preparamos o codigo, executamos ele e depois jogamos o resultado a linha da variavel $resultado
+// serve explicitamente para isso, para pegar o resultado da consulta que acabou de ser executada e guarda na variavel resultado. O resto 
+// do code é igual o que já vinhamos fazer nas outras páginas.
 
 ?>
 
