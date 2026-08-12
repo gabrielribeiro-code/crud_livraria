@@ -13,7 +13,7 @@ $stmt = mysqli_prepare(
 "INSERT INTO livros (titulo,autor,ano) VALUES (?, ?, ?)"
 );
 
-mysqli_stmt_bind_param($stmt, "ssi", $titulo, $autor, $ano, $id);
+mysqli_stmt_bind_param($stmt, "ssi", $titulo, $autor, $ano);
 
 mysqli_stmt_execute($stmt);
 
