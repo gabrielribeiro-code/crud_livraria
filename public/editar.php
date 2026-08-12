@@ -7,7 +7,7 @@ $id = $_GET["id"];
 $stmt = mysqli_prepare(
     $conexao,
 
-"SELECT * FROM livros WHERE id = "?" ";
+"SELECT * FROM livros WHERE id = ? "
 );
 
 mysqli_stmt_bind_param($stmt, "i", $id);
