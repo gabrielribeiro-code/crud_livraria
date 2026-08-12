@@ -4,10 +4,10 @@ $id = $_GET["id"];
 
 
 $stmt = mysqli_prepare(
-    $conexao
+    $conexao,
 
 
-"DELETE FROM livros WHERE id="?" ";
+"DELETE FROM livros WHERE id = ? "
 
 );
 
